@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     images: {
-      domains: ["broca.vercel.app","images.unsplash.com"],
+      domains: ["broca.vercel.app","images.unsplash.com","tailwindui.com"],
       
     },
     env: {

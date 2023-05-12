@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {Auth, GoogleAuthProvider, User, UserCredential, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../../../../firebase.config';
+import Image from 'next/image'
+import Link from "next/link";
 
 // Custom Auth type
 interface CustomAuth extends Auth {}
@@ -67,19 +69,21 @@ export default function SignupForm() {
           <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
             <div className="mx-auto w-full max-w-sm lg:w-96">
               <div>
-                <img
+                <Image
                   className="h-10 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt="Your Company"
+                  width={40}
+                  height={40}
                 />
                 <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
                   Sign in to your account
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-gray-500">
                   Not a member?{' '}
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <Link href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Start a 14 day free trial
-                  </a>
+                  </Link>
                 </p>
               </div>
   
@@ -136,9 +140,9 @@ export default function SignupForm() {
                       </div>
   
                       <div className="text-sm leading-6">
-                        <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                        <Link href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                           Forgot password?
-                        </a>
+                        </Link>
                       </div>
                     </div>
   
@@ -189,10 +193,12 @@ export default function SignupForm() {
             </div>
           </div>
           <div className="relative hidden w-0 flex-1 lg:block">
-            <img
+            <Image
               className="absolute inset-0 h-full w-full object-cover"
               src="https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
               alt=""
+              width={500}
+              height={500}
             />
           </div>
         </div>
