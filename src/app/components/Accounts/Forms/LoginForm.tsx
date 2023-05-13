@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import {Auth, GoogleAuthProvider, OAuthProvider, User, UserCredential, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import {Auth, GoogleAuthProvider, OAuthProvider, User, UserCredential, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../../../../firebase.config';
 import Image from 'next/image'
 import Link from "next/link";
@@ -18,7 +18,7 @@ const schema = yup.object({
 // Type for form data
 type FormData = yup.InferType<typeof schema>;
 
-export default function SignupForm() {
+export default function LoginForm() {
   // React hook form
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema)
@@ -28,7 +28,7 @@ export default function SignupForm() {
     console.log(data);
     const { email, password } = data;
     try {
-      const userCredential:UserCredential = await createUserWithEmailAndPassword(auth as CustomAuth, email, password);
+      const userCredential:UserCredential = await signInWithEmailAndPassword(auth as CustomAuth, email, password);
       // Signed in
       const user:User = userCredential.user;
       console.log(user);

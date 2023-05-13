@@ -3,6 +3,7 @@ import Navbar from './components/Constants/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster position='top-right'   reverseOrder={false} />
         <Navbar/>
         {children}
         <Footer/>
