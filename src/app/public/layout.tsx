@@ -1,5 +1,5 @@
-import Footer from './components/Constants/Footer'
-import Navbar from './components/Constants/Navbar'
+import Footer from '../components/Constants/Footer'
+import Navbar from '../components/Constants/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Toaster position='top-right'   reverseOrder={false} />
+        <Navbar/>
         {children}
+        <Footer/>
         <Analytics />
 
         </body>
