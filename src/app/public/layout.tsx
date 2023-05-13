@@ -1,6 +1,5 @@
 import Footer from '../components/Constants/Footer'
 import Navbar from '../components/Constants/Navbar'
-import './globals.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from 'react-hot-toast';
