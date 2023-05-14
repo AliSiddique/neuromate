@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import { useRouter } from "next/router";
 
 // Custom Auth type
 interface CustomAuth extends Auth {}
@@ -19,6 +20,7 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 export default function SignupForm() {
+  const router = useRouter();
   // React hook form
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema)
@@ -32,6 +34,7 @@ export default function SignupForm() {
       // Signed in
       const user:User = userCredential.user;
       console.log(user);
+        router.push("/users/login");
       // ...
     } catch (error:any) {
       // Handle error
@@ -45,7 +48,7 @@ export default function SignupForm() {
       const userCredential:UserCredential = await signInWithPopup(auth as CustomAuth, provider);
       // Signed in
       const user:User = userCredential.user;
-
+      router.push("/profile");
     } catch (error:any) {
       // Handle error
       console.log(error);
@@ -62,6 +65,7 @@ export default function SignupForm() {
       // Signed in
       const user:User = userCredential.user;
       console.log(user);
+      router.push("/profile");
 
     } catch (error:any) {
       // Handle error

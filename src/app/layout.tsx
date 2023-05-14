@@ -4,7 +4,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from 'react-hot-toast';
-
+import { AuthContextProvider } from './components/context/useAuthContext';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Toaster position='top-right'   reverseOrder={false} />
+        <AuthContextProvider>
         {children}
+        </AuthContextProvider>
         <Analytics />
 
         </body>

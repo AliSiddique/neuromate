@@ -12,6 +12,8 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
+import React from 'react'
+
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   { name: 'Team', href: '#', icon: UsersIcon, current: false },
