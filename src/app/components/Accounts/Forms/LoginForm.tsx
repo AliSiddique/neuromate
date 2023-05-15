@@ -114,7 +114,7 @@ export default function LoginForm() {
               <div>
                 <Image
                   className="h-10 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  src="/smallbrain.png"
                   alt="Your Company"
                   width={40}
                   height={40}

@@ -21,14 +21,14 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <Image
                     className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="/smallbrain.png"
                     alt="Your Company"
                     width={32}
                     height={32}
                   />
                   <Image
                     className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="/smallbrain.png"
                     alt="Your Company"
                     width={32}
                     height={32}
@@ -92,16 +92,10 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:ml-4 lg:flex lg:items-center">
-                <button
-                  type="button"
-                  className="flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+       
 
                 {/* Profile dropdown */}
-                <Link href={`/users/login`}>login</Link>
+                <Link className='rounded bg-indigo-50 px-2 py-1 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100' href={`/users/login`}>Login</Link>
               </div>
             </div>
           </div>
