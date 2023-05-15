@@ -7,7 +7,7 @@ const navigation = {
       { name: 'Blog', href: '#' },
       { name: 'Jobs', href: '#' },
       { name: 'Press', href: '#' },
-      { name: 'Accessibility', href: '#' },
+      { name: 'Write for us', href: '#' },
       { name: 'Partners', href: '#' },
     ],
     social: [
@@ -98,7 +98,7 @@ const navigation = {
             ))}
           </div>
           <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-            &copy; {year} Your Company, Inc. All rights reserved.
+            &copy; {year} Neuromate, Inc. All rights reserved.
           </p>
         </div>
       </footer>

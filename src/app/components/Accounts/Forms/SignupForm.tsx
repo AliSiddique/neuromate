@@ -7,7 +7,8 @@ import Image from 'next/image'
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/20/solid";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 // Custom Auth type
 interface CustomAuth extends Auth {}
@@ -20,11 +21,14 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 export default function SignupForm() {
+  const db = getFirestore();
+
   const router = useRouter();
   // React hook form
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema)
   });
+
   // On submit
   const onSubmit = async (data: FormData): Promise<void>  => {
     console.log(data);
@@ -34,10 +38,15 @@ export default function SignupForm() {
       // Signed in
       const user:User = userCredential.user;
       console.log(user);
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+      };
+      const userDocRef = doc(db, "users", "xaxa");
+
+      await setDoc(userDocRef, userData);
         router.push("/users/login");
-      // ...
     } catch (error:any) {
-      // Handle error
       console.log(error);
     }
   };
@@ -48,6 +57,17 @@ export default function SignupForm() {
       const userCredential:UserCredential = await signInWithPopup(auth as CustomAuth, provider);
       // Signed in
       const user:User = userCredential.user;
+      
+      const userData = {
+        uid: user.uid,
+        name: user.displayName,
+        email: user.email,
+      };
+  
+      const db = getFirestore();
+      const userDocRef = doc(db, "users", user.uid);
+  
+      await setDoc(userDocRef, userData);
       router.push("/profile");
     } catch (error:any) {
       // Handle error
