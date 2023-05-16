@@ -8,13 +8,10 @@ import { auth } from '../../../../firebase.config'
 type Props = {}
 
 export default function Home({}: Props) {
-  const signOut = () => {
-    auth.signOut()
-  }
+
   return (
     <div>
         <Navbar/>
-        <button onClick={signOut}>Sign out</button>
         <BlogMultiple/>
         <Footer/>
     </div>
