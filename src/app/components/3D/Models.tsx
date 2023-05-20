@@ -9,10 +9,10 @@ type Props = {}
 export default function Models({}: Props) {
     const {scene} = useGLTF('/hamburger.glb')
   return (
-    <div>
+    <div className='h-72'>
         <Canvas>
             <OrbitControls />
-            <directionalLight intensity={0.5} />
+            <ambientLight intensity={1} />
             <primitive object={scene} scale={0.35} />
         </Canvas>
     </div>
