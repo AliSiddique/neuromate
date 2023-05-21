@@ -4,16 +4,18 @@ import { Canvas } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import {OrbitControls} from '@react-three/drei'
 
-type Props = {}
+interface Props {
+  scale: number
+}
 
-export default function Models({}: Props) {
+export default function Models({scale = 0.35}: Props) {
     const {scene} = useGLTF('/hamburger.glb')
   return (
-    <div className='h-72'>
+    <div className='h-screen'>
         <Canvas>
             <OrbitControls />
             <ambientLight intensity={1} />
-            <primitive object={scene} scale={0.35} />
+            <primitive zoom={-5} object={scene} scale={scale} />
         </Canvas>
     </div>
   )
