@@ -14,6 +14,7 @@ function Models({ scale = 0.35 }: Props) {
   return (
     <div className="h-screen">
       <Canvas>
+        <OrbitControls />
         <directionalLight intensity={1} />
         <primitive zoom={-5} object={scene} scale={scale} />
       </Canvas>
@@ -21,4 +22,4 @@ function Models({ scale = 0.35 }: Props) {
   );
 }
 
-export default memo(Models);
+export default Models;
