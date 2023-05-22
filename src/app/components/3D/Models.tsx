@@ -9,12 +9,12 @@ interface Props {
 }
 
 function Models({ scale = 0.35 }: Props) {
-  const { scene } = useGLTF('/brain.glb');
+  const { scene } = useGLTF('/hamburger.glb');
 
   return (
     <div className="h-screen">
       <Canvas>
-        <OrbitControls />
+        <OptimizedOrbitControls />
         <directionalLight intensity={1} />
         <primitive zoom={-5} object={scene} scale={scale} />
       </Canvas>
@@ -22,4 +22,6 @@ function Models({ scale = 0.35 }: Props) {
   );
 }
 
-export default Models;
+const OptimizedOrbitControls = memo(OrbitControls);
+
+export default memo(Models);
