@@ -14,14 +14,11 @@ function Models({ scale = 0.35 }: Props) {
   return (
     <div className="h-screen">
       <Canvas>
-        <OptimizedOrbitControls />
         <directionalLight intensity={1} />
         <primitive zoom={-5} object={scene} scale={scale} />
       </Canvas>
     </div>
   );
 }
-
-const OptimizedOrbitControls = memo(OrbitControls);
 
 export default memo(Models);
