@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useAuthContext } from '../components/context/useAuthContext'
 import { useRouter } from 'next/navigation'
 import Models from '../components/3D/Models'
@@ -23,7 +23,9 @@ export default function page({}: Props) {
 // }, [user])
   return (
     <div className='h-screen'>
-      <Models scale={10} />
+      <Suspense fallback={"loading.."}>
+      <Models scale={0.5} />
+      </Suspense>
     </div>
   )
 }

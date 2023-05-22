@@ -9,13 +9,13 @@ interface Props {
 }
 
 function Models({ scale = 0.35 }: Props) {
-  const { scene } = useGLTF('/hamburger.glb');
+  const { scene } = useGLTF('/brain.glb');
 
   return (
     <div className="h-screen">
       <Canvas>
         <OptimizedOrbitControls />
-        <ambientLight intensity={1} />
+        <directionalLight intensity={1} />
         <primitive zoom={-5} object={scene} scale={scale} />
       </Canvas>
     </div>
