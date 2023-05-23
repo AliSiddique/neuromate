@@ -9,7 +9,7 @@ interface Props {
 }
 
 function Models({ scale = 0.35 }: Props) {
-  const { scene } = useGLTF('./brain.glb');
+  const { scene } = useGLTF('/hamburger.glb');
 
   return (
     <div className="h-screen">
