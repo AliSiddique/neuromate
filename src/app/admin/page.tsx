@@ -1,19 +1,9 @@
-'use client'
-import React from "react";
-import { useAuthContext } from "../components/context/useAuthContext";
-import { useRouter } from "next/navigation";
-function Page() {
-    const { user } = useAuthContext()
-    const router = useRouter()
+import React from 'react'
 
-    React.useEffect(() => {
-        if (user == null) router.push("/users/login")
-        console.log(user);
-        
-    }, [user])
+type Props = {}
 
-    return (<h1>Only logged in users {user?.displayName} can view this page</h1>);
+export default function page({}: Props) {
+  return (
+    <div>page</div>
+  )
 }
-
-export default Page;
-
